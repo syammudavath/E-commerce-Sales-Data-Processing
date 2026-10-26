@@ -1,0 +1,5 @@
+# Local development / CI only.
+# Do NOT pip install this file on Databricks: the runtime already provides PySpark,
+# and installing pyspark there would conflict with it.
+pyspark>=3.5,<5.0
+pytest>=7.4
