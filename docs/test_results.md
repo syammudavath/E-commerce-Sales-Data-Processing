@@ -146,4 +146,4 @@ The largest losses are:
 ## Reproducing
 
 * On Databricks, run `notebooks/02_run_unit_tests` for the tests, or `notebooks/01_ecommerce_sales_pipeline` for everything.
-* Locally, run `pip install -r requirements.txt`, then `pytest tests -v`.
+* Optionally, in an external CI system, run `pip install -r requirements.txt`, then `pytest tests -v`. Do not pip install on Databricks; PySpark is already part of the runtime.

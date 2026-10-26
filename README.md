@@ -1,6 +1,6 @@
 # E-commerce Sales Data Processing
 
-A PySpark pipeline on Databricks that processes e-commerce sales data (orders, customers, products). It:
+A **Databricks** PySpark pipeline that processes e-commerce sales data (orders, customers, products). It:
 
 1. Loads the raw source data.
 2. Cleans and enriches it.
@@ -58,7 +58,7 @@ E-commerce-Sales-Data-Processing/
    | --- | --- | --- |
    | `catalog` | `dev_test` | Target catalog |
    | `schema` | `ecommerce_sales` | Target schema (created if missing) |
-   | `data_path` | `<repo>/data` | Folder with the three source files (a workspace path or `/Volumes/...`) |
+   | `data_path` | `../data` | Folder with the three source files. Relative paths resolve from `notebooks/`; absolute paths work as-is (workspace path or `/Volumes/...`) |
 
 4. Click **Run all**. The notebook runs the unit tests first (via `%run ./02_run_unit_tests`) and stops if any fail. It then builds every table, runs the reconciliation checks and outputs the four SQL reports.
 
@@ -70,9 +70,9 @@ To run only the tests, open `notebooks/02_run_unit_tests` and click **Run all**.
 
 Create a Lakeflow Job with a notebook task pointing to `notebooks/01_ecommerce_sales_pipeline`, and pass `catalog`, `schema` and `data_path` as job parameters. If you use a Git folder as the job source, each run uses the committed code.
 
-## Running tests locally
+## Optional: running tests outside Databricks (CI only)
 
-You need Python 3.10+ and Java 17 (for local Spark).
+The pipeline is built for Databricks: notebooks, Unity Catalog Delta tables and Databricks compute. Run it there. The steps below are optional and only cover running the unit tests in an external CI system. You need Python 3.10+ and Java 17.
 
 ```bash
 python -m venv .venv
