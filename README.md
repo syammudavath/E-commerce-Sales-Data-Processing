@@ -9,16 +9,19 @@ A PySpark pipeline on Databricks that processes e-commerce sales data (orders, c
 
 All transformations are written in PySpark and covered by pytest unit tests. SQL is used only for the final reports.
 
+**Test status:** 29 of 29 unit tests passed, and all reconciliation checks passed. Total profit is 278,417.03. See [docs/test_results.md](docs/test_results.md) for the full pytest output, the pipeline summary and the SQL report results.
+
 ## Repository structure
 
 ```
-ecommerce-sales-pipeline/
+E-commerce-Sales-Data-Processing/
 |-- data/                          Source datasets (Orders.json, Customer.xlsx, Products.csv)
 |   `-- README.md
 |-- docs/
 |   |-- architecture.md            Data flow, code layout, performance, error handling
 |   |-- data_dictionary.md         Every table and column
-|   `-- data_quality.md            Data issues found, cleaning rules, assumptions, checks
+|   |-- data_quality.md            Data issues found, cleaning rules, assumptions, checks
+|   `-- test_results.md            Unit test output, reconciliation checks, SQL report results
 |-- notebooks/
 |   |-- 01_ecommerce_sales_pipeline   Main entry point: tests -> pipeline -> SQL reports
 |   `-- 02_run_unit_tests             Runs the pytest suite on Databricks
@@ -196,3 +199,4 @@ Re-run `notebooks/01_ecommerce_sales_pipeline` to refresh these numbers. The not
 * [docs/architecture.md](docs/architecture.md): data flow, code layout, performance and error handling.
 * [docs/data_dictionary.md](docs/data_dictionary.md): every table and column.
 * [docs/data_quality.md](docs/data_quality.md): data issues, cleaning rules, assumptions and reconciliation checks.
+* [docs/test_results.md](docs/test_results.md): unit test output, pipeline run summary and SQL report results.
